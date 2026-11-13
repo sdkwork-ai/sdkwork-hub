@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sdkwork.dev/schemas/hub/hub.catalog-index.v1.json",
+  "title": "SDKWork Hub Catalog Index",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "kind",
+    "generated",
+    "generator",
+    "compiledAt",
+    "pinsDigest",
+    "counts",
+    "maturity",
+    "artifacts"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "kind": { "const": "sdkwork.hub.catalog-index" },
+    "generated": { "const": true },
+    "generator": { "type": "string" },
+    "compilerVersion": { "type": "string" },
+    "compiledAt": { "type": ["string", "null"], "format": "date-time" },
+    "pinsDigest": { "type": ["string", "null"], "pattern": "^[0-9a-f]{64}$" },
+    "counts": {
+      "type": "object",
+      "required": ["modules", "sdkProjects", "apiAuthorities", "operations", "packages"],
+      "additionalProperties": false,
+      "properties": {
+        "modules": { "type": "integer", "minimum": 0 },
+        "sdkProjects": { "type": "integer", "minimum": 0 },
+        "apiAuthorities": { "type": "integer", "minimum": 0 },
+        "operations": { "type": "integer", "minimum": 0 },
+        "packages": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "maturity": {
+      "type": "object",
+      "required": ["l0", "l1", "l2", "l3"],
+      "additionalProperties": false,
+      "properties": {
+        "l0": { "type": "integer", "minimum": 0 },
+        "l1": { "type": "integer", "minimum": 0 },
+        "l2": { "type": "integer", "minimum": 0 },
+        "l3": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "artifacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["path", "kind", "sha256"],
+        "additionalProperties": false,
+        "properties": {
+          "path": { "type": "string" },
+          "kind": { "type": "string" },
+          "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+        }
+      }
+    }
+  }
+}

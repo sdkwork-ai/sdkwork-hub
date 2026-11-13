@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "kind": "sdkwork.hub.catalog-index",
+  "generated": true,
+  "generator": "@sdkwork/hub-cli",
+  "compilerVersion": "0.1.0",
+  "compiledAt": null,
+  "pinsDigest": null,
+  "counts": {
+    "modules": 0,
+    "sdkProjects": 0,
+    "apiAuthorities": 0,
+    "operations": 0,
+    "packages": 0
+  },
+  "maturity": {
+    "l0": 0,
+    "l1": 0,
+    "l2": 0,
+    "l3": 0
+  },
+  "artifacts": []
+}

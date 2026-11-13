@@ -1,0 +1,14 @@
+{
+  "name": "@sdkwork/hub-mcp",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Read-only MCP server over the SDKWork hub catalog.",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "verify": "node ../tools/hub.mjs verify"
+  },
+  "license": "AGPL-3.0-or-later"
+}

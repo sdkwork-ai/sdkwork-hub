@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sdkwork.dev/schemas/hub/hub.lock.v1.json",
+  "title": "SDKWork Hub Link Lock",
+  "type": "object",
+  "required": ["schemaVersion", "kind", "stage", "repos"],
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "kind": { "const": "sdkwork.hub.lock" },
+    "stage": { "enum": [1, 2] },
+    "repos": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/repo" }
+    }
+  },
+  "$defs": {
+    "repo": {
+      "type": "object",
+      "required": ["module", "stage", "url", "path", "commit", "sdkFamilies"],
+      "additionalProperties": false,
+      "properties": {
+        "module": { "type": "string", "pattern": "^sdkwork-[a-z0-9-]+$" },
+        "stage": { "enum": [1, 2] },
+        "url": { "type": "string", "pattern": "^(https://|ssh://|git@)" },
+        "path": { "type": "string", "pattern": "^sdks/" },
+        "commit": { "type": "string", "pattern": "^[0-9a-f]{40}$" },
+        "sdkFamilies": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "type": "string", "pattern": "^sdkwork-[a-z0-9-]+-sdk$" }
+        }
+      }
+    }
+  }
+}

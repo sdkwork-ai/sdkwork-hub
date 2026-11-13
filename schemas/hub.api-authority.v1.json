@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sdkwork.dev/schemas/hub/hub.api-authority.v1.json",
+  "title": "SDKWork Hub API Authority",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "kind",
+    "generated",
+    "generator",
+    "authority",
+    "surface",
+    "prefix",
+    "owner",
+    "sdkFamily",
+    "specPath",
+    "specHash",
+    "protocol",
+    "operations"
+  ],
+  "additionalProperties": true,
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "kind": { "const": "sdkwork.hub.api-authority" },
+    "generated": { "const": true },
+    "generator": { "type": "string" },
+    "authority": { "type": "string" },
+    "surface": { "enum": ["open", "app", "backend", "internal", "rpc"] },
+    "prefix": { "type": ["string", "null"] },
+    "owner": { "type": "string" },
+    "sdkFamily": { "type": "string" },
+    "specPath": { "type": "string" },
+    "specHash": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "protocol": { "enum": ["http-openapi", "rpc"] },
+    "operations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["operationId", "method", "path", "tags", "authMode"],
+        "additionalProperties": true,
+        "properties": {
+          "operationId": { "type": "string" },
+          "method": { "type": "string" },
+          "path": { "type": "string" },
+          "tags": { "type": "array", "items": { "type": "string" } },
+          "authMode": { "type": ["string", "null"] },
+          "summary": { "type": "string" }
+        }
+      }
+    }
+  }
+}

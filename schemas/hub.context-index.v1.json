@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sdkwork.dev/schemas/hub/hub.context-index.v1.json",
+  "title": "SDKWork Hub Context Index",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "kind",
+    "generated",
+    "generator",
+    "compiledAt",
+    "layers",
+    "skills",
+    "references",
+    "recipes",
+    "blueprints"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "kind": { "const": "sdkwork.hub.context-index" },
+    "generated": { "const": true },
+    "generator": { "type": "string" },
+    "compiledAt": { "type": ["string", "null"], "format": "date-time" },
+    "layers": {
+      "type": "object",
+      "required": ["l0", "l1", "l2", "l3"],
+      "additionalProperties": false,
+      "properties": {
+        "l0": { "type": "string" },
+        "l1": { "type": "string" },
+        "l2": { "type": "string" },
+        "l3": { "type": "string" }
+      }
+    },
+    "skills": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "path", "description"],
+        "additionalProperties": false,
+        "properties": {
+          "name": { "type": "string" },
+          "path": { "type": "string" },
+          "description": { "type": "string" }
+        }
+      }
+    },
+    "references": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["family", "path", "tokens"],
+        "additionalProperties": false,
+        "properties": {
+          "family": { "type": "string" },
+          "path": { "type": "string" },
+          "tokens": { "type": "integer", "minimum": 0 }
+        }
+      }
+    },
+    "recipes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["language", "topic", "path"],
+        "additionalProperties": false,
+        "properties": {
+          "language": { "type": "string" },
+          "topic": { "type": "string" },
+          "path": { "type": "string" }
+        }
+      }
+    },
+    "blueprints": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["appType", "path"],
+        "additionalProperties": false,
+        "properties": {
+          "appType": { "type": "string" },
+          "path": { "type": "string" }
+        }
+      }
+    }
+  }
+}

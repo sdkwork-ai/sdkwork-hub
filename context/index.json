@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "kind": "sdkwork.hub.context-index",
+  "generated": true,
+  "generator": "@sdkwork/hub-cli",
+  "compiledAt": null,
+  "layers": {
+    "l0": "context/skills/sdkwork-hub/SKILL.md",
+    "l1": "catalog/sdks/<sdk-family>.json",
+    "l2": "context/references/sdks/<sdk-family>.md",
+    "l3": "sdks/<path>"
+  },
+  "skills": [
+    { "name": "sdkwork-hub", "path": "context/skills/sdkwork-hub/SKILL.md", "description": "Route SDKWork SDK and API work through the hub catalog, skills, and MCP server." },
+    { "name": "sdk-selection", "path": "context/skills/sdk-selection/SKILL.md", "description": "Choose the right SDK families, surfaces, and languages for an application goal." },
+    { "name": "sdk-integration-web", "path": "context/skills/sdk-integration-web/SKILL.md", "description": "Integrate SDKWork SDKs into React, Vue, H5, and mini-program clients." },
+    { "name": "sdk-integration-flutter", "path": "context/skills/sdk-integration-flutter/SKILL.md", "description": "Integrate SDKWork SDKs into Flutter and Dart applications." },
+    { "name": "sdk-integration-native", "path": "context/skills/sdk-integration-native/SKILL.md", "description": "Integrate SDKWork SDKs into Android, iOS, HarmonyOS, and desktop native hosts." },
+    { "name": "sdk-integration-backend", "path": "context/skills/sdk-integration-backend/SKILL.md", "description": "Consume SDKWork SDKs from Rust, Java, Go, and Node services." },
+    { "name": "sdk-auth-session", "path": "context/skills/sdk-auth-session/SKILL.md", "description": "Wire tokens, sessions, IAM bootstrap, and credential entry into SDK clients." },
+    { "name": "sdk-errors-pagination", "path": "context/skills/sdk-errors-pagination/SKILL.md", "description": "Handle SDKWork envelopes, problem details, pagination, idempotency, and retries." },
+    { "name": "sdk-media-drive", "path": "context/skills/sdk-media-drive/SKILL.md", "description": "Implement upload, download, and media resources through the Drive SDK." },
+    { "name": "sdk-version-upgrade", "path": "context/skills/sdk-version-upgrade/SKILL.md", "description": "Upgrade a release train and handle breaking SDK and API changes." }
+  ],
+  "references": [],
+  "recipes": [],
+  "blueprints": []
+}

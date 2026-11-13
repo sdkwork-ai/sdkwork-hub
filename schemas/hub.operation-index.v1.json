@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sdkwork.dev/schemas/hub/hub.operation-index.v1.json",
+  "title": "SDKWork Hub Operation Index",
+  "type": "object",
+  "required": ["schemaVersion", "kind", "generated", "generator", "authority", "operations"],
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "kind": { "const": "sdkwork.hub.operation-index" },
+    "generated": { "const": true },
+    "generator": { "type": "string" },
+    "authority": { "type": "string" },
+    "operations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["operationId", "method", "path", "tags", "authMode", "schemas"],
+        "additionalProperties": true,
+        "properties": {
+          "operationId": { "type": "string" },
+          "method": { "type": "string" },
+          "path": { "type": "string" },
+          "tags": { "type": "array", "items": { "type": "string" } },
+          "authMode": { "type": ["string", "null"] },
+          "summary": { "type": "string" },
+          "schemas": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+              "request": { "type": ["string", "null"] },
+              "response": { "type": ["string", "null"] },
+              "errors": { "type": "array", "items": { "type": "string" } }
+            }
+          }
+        }
+      }
+    }
+  }
+}

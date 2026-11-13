@@ -1,0 +1,26 @@
+# Node
+node_modules/
+dist/
+coverage/
+*.log
+pnpm-debug.log*
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# OS and editors
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Local hub state
+.hub-cache/
+.sdkwork/local/
+.sdkwork/tmp/
+.sdkwork/cache/
+.sdkwork/secrets/
+
+# SDK sources are managed as gitlinks and must never be ignored.

@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sdkwork.dev/schemas/hub/hub.sdk-project.v1.json",
+  "title": "SDKWork Hub SDK Project",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "kind",
+    "generated",
+    "generator",
+    "family",
+    "stem",
+    "domain",
+    "surface",
+    "sdkKind",
+    "owner",
+    "source",
+    "apiAuthority",
+    "apiPrefix",
+    "languages",
+    "packages",
+    "operations",
+    "dependencies",
+    "maturity",
+    "provenance"
+  ],
+  "additionalProperties": true,
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "kind": { "const": "sdkwork.hub.sdk-project" },
+    "generated": { "const": true },
+    "generator": { "type": "string" },
+    "family": { "type": "string", "pattern": "^sdkwork-[a-z0-9-]+-sdk$" },
+    "stem": { "type": "string" },
+    "domain": { "type": "string" },
+    "surface": { "enum": ["open", "app", "backend", "internal", "rpc", "none"] },
+    "sdkKind": { "enum": ["http-openapi", "rpc", "provider-runtime", "language-native"] },
+    "owner": { "type": "string" },
+    "source": {
+      "type": "object",
+      "required": ["stage", "path", "commit", "manifestPath"],
+      "additionalProperties": false,
+      "properties": {
+        "stage": { "enum": [1, 2] },
+        "path": { "type": "string", "pattern": "^sdks/" },
+        "commit": { "type": "string", "pattern": "^[0-9a-f]{40}$" },
+        "manifestPath": { "type": "string" }
+      }
+    },
+    "apiAuthority": { "type": ["string", "null"] },
+    "apiPrefix": { "type": ["string", "null"] },
+    "languages": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+    "packages": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["language", "path", "version"],
+        "additionalProperties": true,
+        "properties": {
+          "language": { "type": "string" },
+          "consumer": { "type": ["string", "null"] },
+          "transport": { "type": ["string", "null"] },
+          "path": { "type": "string" },
+          "version": { "type": "string" },
+          "release": { "enum": ["published", "generated", "placeholder", "unknown"] }
+        }
+      }
+    },
+    "operations": {
+      "type": "object",
+      "required": ["count", "tags", "path"],
+      "additionalProperties": false,
+      "properties": {
+        "count": { "type": "integer", "minimum": 0 },
+        "tags": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+        "path": { "type": ["string", "null"] }
+      }
+    },
+    "dependencies": {
+      "type": "array",
+      "items": { "type": "string" },
+      "uniqueItems": true
+    },
+    "maturity": { "enum": ["L0", "L1", "L2", "L3"] },
+    "status": { "type": "object" },
+    "provenance": {
+      "type": "object",
+      "required": ["sourceSha256", "manifestSha256"],
+      "additionalProperties": true,
+      "properties": {
+        "sourceSha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+        "manifestSha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+      }
+    }
+  }
+}

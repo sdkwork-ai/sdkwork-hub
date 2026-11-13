@@ -1,0 +1,18 @@
+{
+  "name": "@sdkwork/hub-cli",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "SDKWork hub CLI: link, catalog, context, and verification commands.",
+  "bin": {
+    "sdkwork-hub": "./hub.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "verify": "node hub.mjs verify",
+    "test": "node --test"
+  },
+  "license": "AGPL-3.0-or-later"
+}

@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "kind": "sdkwork.component.spec",
+  "name": "sdkwork-hub-mcp",
+  "type": "component",
+  "root": "mcp",
+  "capability": "hub-context",
+  "languages": ["typescript"],
+  "contracts": {
+    "tools": [
+      "sdk_search",
+      "api_search",
+      "sdk_get",
+      "api_operations",
+      "operation_get",
+      "integration_plan",
+      "recipe_get",
+      "usage_check",
+      "train_get",
+      "doc_read"
+    ],
+    "resources": [
+      "sdkwork://catalog",
+      "sdkwork://sdk/{family}",
+      "sdkwork://api/{authority}",
+      "sdkwork://recipe/{language}/{topic}",
+      "sdkwork://blueprint/{appType}",
+      "sdkwork://train/current"
+    ],
+    "readOnly": true
+  },
+  "canonicalSpecs": [
+    { "file": "CONTEXT_SPEC.md", "path": "../../specs/CONTEXT_SPEC.md" },
+    { "file": "VERIFICATION_SPEC.md", "path": "../../specs/VERIFICATION_SPEC.md" },
+    { "file": "GOVERNANCE_SPEC.md", "path": "../../specs/GOVERNANCE_SPEC.md" }
+  ],
+  "verification": {
+    "commands": ["node ../tools/hub.mjs verify"]
+  },
+  "metadata": {
+    "managedBy": "sdkwork-hub",
+    "standardVersion": "2026-11-13"
+  }
+}

@@ -1,0 +1,27 @@
+canon:
+  documentation_index: docs/README.md
+  product_prd: docs/product/prd/PRD.md
+  technical_architecture: docs/architecture/tech/TECH_ARCHITECTURE.md
+
+working:
+  requirements: docs/product/requirements/README.md
+  decisions: docs/architecture/decisions/README.md
+  plans: docs/engineering/plans/README.md
+  reviews: docs/engineering/reviews/README.md
+
+guides:
+  developer: docs/guides/developer/README.md
+  integrator: docs/guides/integrator/README.md
+  operator: docs/guides/operator/README.md
+
+evidence:
+  runbooks: docs/runbooks/README.md
+  changelogs: docs/changelogs/README.md
+  migrations: docs/migrations/README.md
+  releases: docs/releases/README.md
+
+extension:
+  domains: docs/domains/README.md
+
+archive:
+  root: docs/archive/README.md

@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "kind": "sdkwork.workspace",
+  "rootType": "repository",
+  "name": "sdkwork-hub",
+  "applicationCode": null,
+  "skillsDir": ".sdkwork/skills",
+  "pluginsDir": ".sdkwork/plugins"
+}

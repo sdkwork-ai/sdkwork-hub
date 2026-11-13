@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sdkwork.dev/schemas/hub/hub.mcp-tools.v1.json",
+  "title": "SDKWork Hub MCP Tool Contract",
+  "type": "object",
+  "required": ["schemaVersion", "kind", "generated", "generator", "tools", "resources"],
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "kind": { "const": "sdkwork.hub.mcp-tools" },
+    "generated": { "const": true },
+    "generator": { "type": "string" },
+    "tools": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "description", "inputSchema"],
+        "additionalProperties": false,
+        "properties": {
+          "name": { "type": "string", "pattern": "^[a-z][a-z0-9_]+$" },
+          "description": { "type": "string", "minLength": 1 },
+          "inputSchema": {
+            "type": "object",
+            "required": ["type", "additionalProperties"],
+            "properties": {
+              "type": { "const": "object" },
+              "additionalProperties": { "const": false }
+            },
+            "additionalProperties": true
+          }
+        }
+      }
+    },
+    "resources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["uriTemplate", "name"],
+        "additionalProperties": false,
+        "properties": {
+          "uriTemplate": { "type": "string", "pattern": "^sdkwork://" },
+          "name": { "type": "string" }
+        }
+      }
+    }
+  }
+}

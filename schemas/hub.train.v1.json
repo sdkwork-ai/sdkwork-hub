@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sdkwork.dev/schemas/hub/hub.train.v1.json",
+  "title": "SDKWork Hub Release Train",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "kind",
+    "generated",
+    "generator",
+    "trainVersion",
+    "compiledAt",
+    "pins",
+    "sdkVersions",
+    "compatibility"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "kind": { "const": "sdkwork.hub.train" },
+    "generated": { "const": true },
+    "generator": { "type": "string" },
+    "trainVersion": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+    "compiledAt": { "type": ["string", "null"], "format": "date-time" },
+    "pins": {
+      "type": "object",
+      "additionalProperties": { "type": "string", "pattern": "^[0-9a-f]{40}$" }
+    },
+    "sdkVersions": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": { "type": "string" }
+      }
+    },
+    "compatibility": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "appbase": { "type": "string" },
+        "iam": { "type": "string" },
+        "ui": { "type": "string" }
+      }
+    }
+  }
+}
