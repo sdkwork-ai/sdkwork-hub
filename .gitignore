@@ -16,6 +16,9 @@ Thumbs.db
 .idea/
 .vscode/
 
+# Local scratch output
+tmp/
+
 # Local hub state
 .hub-cache/
 .sdkwork/local/
