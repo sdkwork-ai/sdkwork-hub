@@ -38,6 +38,6 @@ description: Wire tokens, sessions, IAM bootstrap, and credential entry into SDK
 ## Verification
 
 ```bash
-node ../sdkwork-specs/tools/check-app-iam-integration.mjs --workspace ..
+node ../sdkwork-specs/tools/audit-app-iam-integration.mjs --workspace ..
 node ../sdkwork-specs/tools/check-credential-entry-bootstrap-standard.mjs --workspace ..
 ```

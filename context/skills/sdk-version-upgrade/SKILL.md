@@ -39,5 +39,5 @@ description: Upgrade an SDKWork release train and handle breaking SDK and API ch
 
 ```bash
 node tools/hub.mjs verify
-node ../sdkwork-specs/tools/check-dependency-mode-consistency.mjs
+node ../sdkwork-specs/tools/check-dependency-list-completeness.mjs --root .
 ```

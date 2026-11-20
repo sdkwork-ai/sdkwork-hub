@@ -167,7 +167,7 @@ Rules:
 ## 8. Verification
 
 ```bash
-node tools/hub.mjs context build --check
+node tools/hub.mjs context check
 node tools/hub.mjs verify
 node --test
 ```

@@ -105,6 +105,6 @@ Rules:
 ## 9. Verification
 
 ```bash
-node tools/hub.mjs catalog build --check
+node tools/hub.mjs catalog check
 node tools/hub.mjs verify
 ```
